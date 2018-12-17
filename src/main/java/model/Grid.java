@@ -7,7 +7,7 @@ public class Grid {
 
     private List<Tile> tiles;
 
-    Grid() {
+    public Grid() {
         tiles = new ArrayList<>(16);
     }
 
