@@ -14,4 +14,8 @@ public class Grid {
     public List<Tile> getTiles() {
         return tiles;
     }
+
+    public void addToTiles(Tile tile)  {
+        tiles.add(tile);
+    }
 }
