@@ -1,6 +1,7 @@
 package controller;
 
-import controller.Game2048;
+import model.Grid;
+import model.Tile;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,12 +9,14 @@ import static org.mockito.Mockito.*;
 
 public class Game2048Test {
 
-    private Game2048 game2048 = new Game2048();
-    private PopUpMessage popUpMessage = mock(PopUpMessage.class);
+    private Grid grid = mock(Grid.class);
+    private Game2048 game2048 = new Game2048(grid);
 
     @Test
-    void shouldPopUpMessageYouWonWhen2048TileAppearsInGrid() {
+    void shouldUpdateGridWithNewValue4IfTwoTilesAreSame() {
+        Tile tile = new Tile();
         game2048.play();
-        assertTrue(popUpMessage.won);
+        tile.updateValue(4);
+        verify(grid).consists(tile);
     }
 }
