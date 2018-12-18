@@ -15,6 +15,12 @@ class RandomNumberGeneratorTest {
     }
 
     @Test
+    void shouldNotGenerateRandomNumberNeitherOf2Or4() {
+        int number = randomNumberGenerator.generateEitherOfTwoNumbers2And4();
+        assertFalse((number!=2) && (number!=4));
+    }
+
+    @Test
     void shouldGenerateRandomNumberBetweenSpecifiedRangeSay1And16() {
         int number = randomNumberGenerator.generateNumberBetweenRange(16,1);
         assertTrue((number<=16)&&(number>=1));
@@ -26,4 +32,9 @@ class RandomNumberGeneratorTest {
         assertEquals(1, number);
     }
 
+    @Test
+    void shouldNotGenerateAnyNumberWhichIsNotSpecifiedInRange() {
+        int number = randomNumberGenerator.generateNumberBetweenRange(16,1);
+        assertFalse((number>16) && (number<1));
+    }
 }
