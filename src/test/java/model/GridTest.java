@@ -9,18 +9,15 @@ class GridTest {
 
     private Grid grid = new Grid();
     private Tile tile1 = mock(Tile.class);
-    private Tile tile2 = mock(Tile.class);
 
     @Test
-    void shouldReturnAnEmptyListOfTiles() {
-        assertTrue(grid.getTiles().isEmpty());
+    void shouldUpdateTilesWithTile1ToTheSpecifiedIndex1() {
+        grid.updateTiles(tile1,1);
+        assertTrue(grid.consists(tile1));
     }
 
     @Test
-    void shouldReturnTileListOfSize2() {
-        grid.addToTiles(tile1);
-        grid.addToTiles(tile2);
-        assertEquals(2,grid.getTiles().size());
+    void shouldNotUpdateTilesWithTile1ToIndex2AsSpecifiedIndexIs1() {
+        assertFalse(grid.consists(tile1));
     }
-
 }
