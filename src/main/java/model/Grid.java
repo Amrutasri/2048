@@ -18,6 +18,15 @@ public class Grid {
         tiles[index] = tile;
     }
 
+    public int getIndex(Tile tile) {
+        for(int index=0; index<16; index++) {
+            if(tiles[index]==tile) {
+                return index;
+            }
+        }
+        return 0;
+    }
+
     public boolean consists(Tile tile) {
         boolean flag = false;
         for(int index=0; index<16; index++) {
