@@ -1,15 +1,14 @@
 package model;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Tile {
 
     private int value;
 
     public Tile() {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-        value = randomNumberGenerator.generateEitherOfTwoNumbers2And4();
+        NumberGenerator numberGenerator = new NumberGenerator();
+        value = numberGenerator.generateEitherOfTwoNumbers2And4();
     }
 
     public void updateValue(int value) {

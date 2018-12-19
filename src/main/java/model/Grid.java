@@ -4,12 +4,12 @@ public class Grid {
 
     private Tile[] tiles;
 
-    private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    private NumberGenerator numberGenerator = new NumberGenerator();
 
     Grid() {
         tiles = new Tile[16];
-        int index1 = randomNumberGenerator.generateNumberBetweenRange(15,0);
-        int index2 = randomNumberGenerator.generateNumberBetweenRange(15,0);
+        int index1 = numberGenerator.generateRandomNumberBetweenRange(15,0);
+        int index2 = numberGenerator.generateRandomNumberBetweenRange(15,0);
         tiles[index1] = new Tile();
         tiles[index2] = new Tile();
     }
