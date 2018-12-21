@@ -62,48 +62,4 @@ class GridTest {
     void shouldNotEqualTile1AsItCreatesAndReturnsNewTile() {
         assertNotEquals(tile1,grid.createTile());
     }
-
-    @Test
-    void shouldSlideTheGivenTileFromItsIndexToTheGivenIndex() {
-        grid.slide(tile1,1,3);
-
-        assertEquals(3,grid.getIndex(tile1));
-    }
-
-    @Test
-    void shouldNotSlideTheGivenTileFromItsIndexToAnotherIndexOtherThanTheSpecifiedIndex() {
-        grid.slide(tile1,3,1);
-
-        assertNotEquals(2,grid.getIndex(tile1));
-    }
-
-    @Test
-    void shouldMergeTheTileWithIndex1WithAnotherTileWithIndex2() {
-        grid.updateTiles(tile1,1);
-        grid.updateTiles(tile2,2);
-
-        grid.merge(tile1,1,2);
-
-        assertTrue(grid.isNull(1));
-    }
-
-    @Test
-    void shouldNotLeaveTheTileBehindInPreviousIndexAfterMergingTile1WithIndex2ToIndex1Tile() {
-        grid.updateTiles(tile1,2);
-        grid.updateTiles(tile2,1);
-
-        grid.merge(tile1,2,1);
-
-        assertTrue(grid.isNull(2));
-    }
-
-    @Test
-    void shouldNotMergeTile1WithIndex1ToAnyOtherIndexTileOtherThanSpecifiedIndex2() {
-        grid.updateTiles(tile1,1);
-        grid.updateTiles(tile2,2);
-
-        grid.merge(tile1,1,2);
-
-        assertNotEquals(3,grid.getIndex(tile1));
-    }
 }

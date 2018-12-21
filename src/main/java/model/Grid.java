@@ -42,13 +42,13 @@ public class Grid {
         return tiles[moveToIndex]==tile;
     }
 
-    public void slide(Tile tile, int tileIndex, int moveToIndex) {
-        updateTiles(tile,moveToIndex);
-        updateTiles(null,tileIndex);
-    }
-
-    public void merge(Tile tile, int tileIndex, int moveToIndex) {
-        tiles[moveToIndex].updateValue(tile.getValue()+tile.getValue());
-        tiles[tileIndex] = null;
+    public boolean isFull() {
+        int tilesCount=0;
+        for(int index=0; index<16; index++) {
+            if(tiles[index]!=null) {
+                tilesCount++;
+            }
+        }
+        return tilesCount==16;
     }
 }
