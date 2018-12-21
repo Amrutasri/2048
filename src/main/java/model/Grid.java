@@ -24,16 +24,31 @@ public class Grid {
                 return index;
             }
         }
-        return 0;
+        return -1;
     }
 
-    public boolean consists(Tile tile) {
-        boolean flag = false;
-        for(int index=0; index<16; index++) {
-            if(tiles[index] == tile) {
-                flag = true;
-            }
-        }
-        return flag;
+    public Tile createTile() {
+        int newTileIndex = numberGenerator.generateRandomNumberBetweenRange(15,0);
+        Tile tile = new Tile();
+        tiles[newTileIndex] = tile;
+        return tile;
+    }
+
+    public boolean isNull(int moveToIndex) {
+        return tiles[moveToIndex]==null;
+    }
+
+    public boolean equals(int moveToIndex, Tile tile) {
+        return tiles[moveToIndex]==tile;
+    }
+
+    public void slide(Tile tile, int tileIndex, int moveToIndex) {
+        updateTiles(tile,moveToIndex);
+        updateTiles(null,tileIndex);
+    }
+
+    public void merge(Tile tile, int tileIndex, int moveToIndex) {
+        tiles[moveToIndex].updateValue(tile.getValue()+tile.getValue());
+        tiles[tileIndex] = null;
     }
 }
