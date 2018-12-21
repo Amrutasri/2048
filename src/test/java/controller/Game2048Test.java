@@ -1,5 +1,6 @@
 package controller;
 
+import model.Direction;
 import model.Grid;
 import model.Tile;
 import org.junit.jupiter.api.Test;
